@@ -15,7 +15,7 @@ def main():
     for i, deadline in enumerate(deadlines):
         days_remaining = (deadline["deadline"] - current_date).days
         ax.barh(i, days_remaining, left=current_date, color="skyblue", edgecolor="black", height=0.6)
-        ax.text(current_date, i, f" {days_remaining} days", va="center", ha="left", fontsize=8)
+        ax.text(current_date, i, f" {days_remaining} day{'s' if days_remaining != 1 else ''}", va="center", ha="left", fontsize=8)
 
     plt.show()
 
