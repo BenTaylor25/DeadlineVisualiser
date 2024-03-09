@@ -1,6 +1,6 @@
 # Deadline Visualiser
 
-(screenshot)
+![Deadline Visualiser screenshot](/img/deadlineVisualiser.png)
 
 Have you ever felt overwhelmed with how many tasks you have to do?  
 Have you ever been so stressed with encroaching deadlines that you're unable to work on anything?
@@ -13,7 +13,7 @@ to be done, then create a timeline so that I figure out a priority.
 Historically, I have done this on paper, but after using 3 sheets of A4 on one schedule,
 I realised it would be better-suited to a computed graph.
 
-(picture of paper)
+![Manual version on paper](/img/paperVersion.png)
 
 Deadline Visualiser is a prototype of this digitalisation which I wish to expand in the future.
 
