@@ -27,11 +27,14 @@ def main():
             height=0.6
         )
 
+        days_remaining_str = f"{days_remaining} day{'s' if days_remaining != 1 else ''}"
+        deadline_str = "{:%d-%m-%Y}".format(deadline["deadline"])
+
         # Text inside the bar.
         ax.text(
             x=current_date,
             y=i,
-            s=f" {days_remaining} day{'s' if days_remaining != 1 else ''}",
+            s=f" {days_remaining_str} ({deadline_str})",
             va="center",
             ha="left",
             fontsize=8
