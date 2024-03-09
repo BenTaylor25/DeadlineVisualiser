@@ -5,7 +5,7 @@ deadlines = []
 try:
     from private_deadlines import deadlines as p_deadlines
     deadlines = p_deadlines
-except FileNotFoundError:
+except ModuleNotFoundError:
     # If `private_deadlines.py` does not exist, use default data.
     deadlines = [
         {
