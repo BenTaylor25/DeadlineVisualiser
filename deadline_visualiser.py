@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
 from datetime import date
 from deadlines import deadlines
 
@@ -9,6 +10,7 @@ def main():
 
     ax.set_title("Deadlines Visualiser")
     ax.set_xlabel("Timeline")
+    ax.xaxis.set_major_formatter(mdates.DateFormatter("%d-%m-%Y"))
     ax.set_yticks(range(len(deadlines)))
     ax.set_yticklabels([deadline["label"] for deadline in deadlines])
 
