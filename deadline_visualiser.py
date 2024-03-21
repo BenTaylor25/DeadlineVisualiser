@@ -1,9 +1,11 @@
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from datetime import date
-from deadlines import deadlines
+from deadlines import get_deadlines
 
 def main():
+    deadlines = get_deadlines()
+
     current_date = date.today()
 
     fig, ax = plt.subplots()

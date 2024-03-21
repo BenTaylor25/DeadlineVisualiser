@@ -31,3 +31,50 @@ except ModuleNotFoundError:
     ]
 
 deadlines.reverse()
+
+from os import walk
+import json
+
+DEADLINES_PATH = "./deadline_files"
+
+def get_deadline_filenames() -> list[str]:
+    filenames = []
+
+    for (_, _, walk_filenames) in walk(DEADLINES_PATH):
+        for filename in walk_filenames:
+            filenames.append(filename)
+
+    return filenames
+
+def get_deadlines():
+    filenames = get_deadline_filenames()
+
+    for filename in filenames:
+        print(f"- '{filename}'")
+
+    while True:
+        user_filename = input("Enter deadline file name: ")
+
+        if user_filename not in filenames:
+            print("Filename not recognised, try again.")
+        else:
+            break
+
+    with open(F"{DEADLINES_PATH}/{user_filename}") as f:
+        deserialised_json = json.load(f)
+
+        deadlines = []
+
+        for entry in deserialised_json:
+            deadline = {
+                "label": entry.get("label"),
+                "deadline": date(
+                    entry.get("year"),
+                    entry.get("month"),
+                    entry.get("day")
+                )
+            }
+
+            deadlines.append(deadline)
+
+        return deadlines
