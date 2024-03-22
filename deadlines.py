@@ -36,6 +36,7 @@ from os import walk
 import json
 
 DEADLINES_PATH = "./deadline_files"
+DEADLINE_FILE_EXTENSION = ".json"
 
 def get_deadline_filenames() -> list[str]:
     filenames = []
@@ -46,6 +47,15 @@ def get_deadline_filenames() -> list[str]:
 
     return filenames
 
+def get_user_filename():
+    user_filename = input("Enter deadline file name: ")
+
+    # Allow the user to omit file extension.
+    if DEADLINE_FILE_EXTENSION not in user_filename:
+        user_filename += DEADLINE_FILE_EXTENSION
+
+    return user_filename
+
 def get_deadlines():
     filenames = get_deadline_filenames()
 
@@ -53,7 +63,7 @@ def get_deadlines():
         print(f"- '{filename}'")
 
     while True:
-        user_filename = input("Enter deadline file name: ")
+        user_filename = get_user_filename()
 
         if user_filename not in filenames:
             print("Filename not recognised, try again.")
