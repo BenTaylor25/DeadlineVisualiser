@@ -15,27 +15,25 @@ def get_deadline_filenames() -> list[str]:
     return filenames
 
 def get_user_filename():
-    user_filename = input("Enter deadline file name: ")
-
-    # Allow the user to omit file extension.
-    if DEADLINE_FILE_EXTENSION not in user_filename:
-        user_filename += DEADLINE_FILE_EXTENSION
-
-    return user_filename
-
-def get_deadlines():
     filenames = get_deadline_filenames()
 
     for filename in filenames:
         print(f"- '{filename}'")
 
     while True:
-        user_filename = get_user_filename()
+        user_filename = input("Enter deadline file name: ")
+
+        # Allow the user to omit file extension.
+        if DEADLINE_FILE_EXTENSION not in user_filename:
+            user_filename += DEADLINE_FILE_EXTENSION
 
         if user_filename not in filenames:
             print("Filename not recognised, try again.")
         else:
-            break
+            return user_filename
+
+def get_deadlines():
+    user_filename = get_user_filename()
 
     with open(F"{DEADLINES_PATH}/{user_filename}") as f:
         deserialised_json = json.load(f)
