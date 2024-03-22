@@ -41,19 +41,21 @@ def get_deadlines():
         deserialised_json = json.load(f)
 
     deadlines = []
-
     for entry in deserialised_json:
         deadline = {
-            "label": entry.get("label"),
+            "label": entry["label"],
             "deadline": date(
-                entry.get("year"),
-                entry.get("month"),
-                entry.get("day")
+                entry["year"],
+                entry["month"],
+                entry["day"]
             )
         }
 
         deadlines.append(deadline)
 
+    # The graph plots from bottom to top,
+    # so we reverse the data in order to
+    # show top to bottom.
     deadlines.reverse()
 
     return deadlines

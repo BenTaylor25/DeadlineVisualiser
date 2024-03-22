@@ -1,16 +1,19 @@
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from datetime import date
+
 from deadlines import get_deadlines
+
+TITLE = "Deadlines Visualiser"
 
 def main():
     deadlines = get_deadlines()
 
     current_date = date.today()
 
-    fig, ax = plt.subplots()
+    _, ax = plt.subplots()
 
-    ax.set_title("Deadlines Visualiser")
+    ax.set_title(TITLE)
     ax.set_xlabel("Timeline")
     ax.xaxis.set_major_formatter(mdates.DateFormatter("%d-%m-%Y"))
     ax.set_yticks(range(len(deadlines)))
@@ -29,7 +32,8 @@ def main():
             height=0.6
         )
 
-        days_remaining_str = f"{days_remaining} day{'s' if days_remaining != 1 else ''}"
+        days_remaining_plural = 's' if days_remaining != 1 else ''
+        days_remaining_str = f"{days_remaining} day{days_remaining_plural}"
         deadline_str = "{:%d-%m-%Y}".format(deadline["deadline"])
 
         # Text inside the bar.
