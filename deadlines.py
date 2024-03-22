@@ -63,18 +63,20 @@ def get_deadlines():
     with open(F"{DEADLINES_PATH}/{user_filename}") as f:
         deserialised_json = json.load(f)
 
-        deadlines = []
+    deadlines = []
 
-        for entry in deserialised_json:
-            deadline = {
-                "label": entry.get("label"),
-                "deadline": date(
-                    entry.get("year"),
-                    entry.get("month"),
-                    entry.get("day")
-                )
-            }
+    for entry in deserialised_json:
+        deadline = {
+            "label": entry.get("label"),
+            "deadline": date(
+                entry.get("year"),
+                entry.get("month"),
+                entry.get("day")
+            )
+        }
 
-            deadlines.append(deadline)
+        deadlines.append(deadline)
 
-        return deadlines
+    deadlines.reverse()
+
+    return deadlines
