@@ -1,4 +1,5 @@
 from datetime import date, timedelta
+
 from deadlines import DEADLINE_FILE_EXTENSION, DEADLINES_PATH
 
 def get_sample_data() -> str:
@@ -22,23 +23,6 @@ def get_sample_data() -> str:
         '\t}\n'
         ']'
     )
-
-    # return (
-    #     f'[\n'
-    #     f'\t\{\n'
-    #     f'"label": "test 1",
-    #             "day": {five_days.day},
-    #             "month": {five_days.month},
-    #             "year": {five_days.year}
-    #         },
-    #         {
-    #             "label": "test 2",
-    #             "day": {ten_days.day},
-    #             "month": {ten_days.month},
-    #             "year": {ten_days.year}
-    #         }
-    #     ]
-    # )
 
 def generate_deadline_format():
     filename = f"test{DEADLINE_FILE_EXTENSION}"

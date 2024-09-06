@@ -5,12 +5,15 @@ import json
 DEADLINES_PATH = "./deadline_files"
 DEADLINE_FILE_EXTENSION = ".json"
 
+GITKEEP_FILENAME = ".gitkeep"
+
 def get_deadline_filenames() -> list[str]:
     filenames = []
 
     for (_, _, walk_filenames) in walk(DEADLINES_PATH):
         for filename in walk_filenames:
-            filenames.append(filename)
+            if filename != GITKEEP_FILENAME:
+                filenames.append(filename)
 
     return filenames
 
