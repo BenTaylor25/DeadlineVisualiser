@@ -14,7 +14,7 @@ def get_sample_data() -> str:
         f'\t\t"day": {five_days.day},\n'
         f'\t\t"month": {five_days.month},\n'
         f'\t\t"year": {five_days.year}\n'
-        '\t},'
+        '\t},\n'
         '\t{\n'
         '\t\t"label": "test 2",\n'
         f'\t\t"day": {ten_days.day},\n'
